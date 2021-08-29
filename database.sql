@@ -21,7 +21,7 @@ create TABLE parking(
     price INTEGER,
     free_places BOOLEAN
 );
-
+-- нет в бд
 create TABLE photo(
     id SERIAL PRIMARY KEY,
     src BYTEA,
@@ -29,7 +29,7 @@ create TABLE photo(
     parking_id INTEGER,
     FOREIGN KEY (parking_id) REFERENCES parking (id)
 );
-
+-----------
 create TABLE reservation(
     id SERIAL PRIMARY KEY,
     creating TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -37,5 +37,6 @@ create TABLE reservation(
     date_end DATE,
     user_id INTEGER,
     parking_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES person (id)
+    FOREIGN KEY (user_id) REFERENCES person (id),
+    FOREIGN KEY (parking_id) REFERENCES parking (id)
 );
