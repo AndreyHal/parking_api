@@ -16,8 +16,8 @@ class ParkingController {
 
   async getParking(req, res) {
     // const {} = req.body;
-    const arr = await db.query('SELECT id, name, price, free_places, city, street, house FROM parking');
-    res.json(arr.rows);
+    const parking = await db.query('SELECT id, name, price, free_places, city, street, house FROM parking');
+    res.json(parking.rows);
   }
 
   async getOneParking(req, res) {

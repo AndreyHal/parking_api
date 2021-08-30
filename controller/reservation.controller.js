@@ -9,7 +9,7 @@ class ReservationController {
 
   async getReservation(req, res) {
     // const {} = req.body;
-    const reservation = await db.query('SELECT * FROM reservation');
+    const reservation = await db.query('SELECT * FROM reservation INNER JOIN parking ON reservation.parking_id=parking.id');  //бронированные парковки плюс инфа самой парковки
     res.json(reservation.rows);
   }
 }
