@@ -29,8 +29,8 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use('/api/auth', authRouter);
+app.use('/api',  userRouter);
 app.use('/api', parkingRouter);
-app.use('/api', auth, userRouter);
 app.use('/api', auth, reservationRouter);
 
 app.listen(PORT, () => console.log(`server started on port ${PORT}`));

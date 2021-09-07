@@ -21,6 +21,7 @@ create TABLE parking(
     city VARCHAR(255),
     street VARCHAR(255),
     house VARCHAR(255),
+    description VARCHAR(1000) DEFAULT '',
     count_place INTEGER,
     price INTEGER,
     free_places BOOLEAN

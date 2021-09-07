@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
     res.status(401).json({message: 'Пользователь не авторизован'});
   }
   const decoded = jwt.verify(token, 'jwt_secret_key');
-  req.id = decoded.id;
-  req.role = decoded.role;
+  req.user_id = decoded.user_id;
+  req.user_role = decoded.user_role;
   next();
 };

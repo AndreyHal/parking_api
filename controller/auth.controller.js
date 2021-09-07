@@ -22,7 +22,7 @@ class AuthController {
     );
 
     res.cookie('token', token, {
-      maxAge: 100000000, // time until expiration
+      maxAge: 90000, // time until expiration
       secure: false, // set to true if your using https
       httpOnly: true
     }).send();
@@ -31,7 +31,7 @@ class AuthController {
   async isAuth(req, res) {
     const token = req.cookies?.token || '';
     if(!token) {
-      res.status(401).send({message: 'Пользователь не авторизован'});
+      res.status(401).json({message: 'Пользователь не авторизован'});
     }
     res.status(200).send();
   };
