@@ -9,8 +9,6 @@ create TABLE person(
     num_of_car VARCHAR(255)
 );
 
---select *, case when parking.id in (select parking_id from favorite where user_id=9) then true else false end as is_favorite from parking;   //!!!!!!!!
-
 create TABLE parking(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
@@ -24,7 +22,13 @@ create TABLE parking(
     description VARCHAR(1000) DEFAULT '',
     count_place INTEGER,
     price INTEGER,
-    free_places BOOLEAN
+    free_places BOOLEAN,
+    video_monitoring BOOLEAN DEFAULT FALSE,
+    covered_parking BOOLEAN DEFAULT FALSE,
+    underground_parking BOOLEAN DEFAULT FALSE,
+    motorbike BOOLEAN DEFAULT FALSE,
+    car BOOLEAN DEFAULT FALSE,
+    truck BOOLEAN DEFAULT FALSE
 );
 -- нет в бд
 create TABLE photo(
@@ -32,7 +36,9 @@ create TABLE photo(
     path VARCHAR(255),
     main BOOLEAN,
     parking_id INTEGER,
+    user_id INTEGER,
     FOREIGN KEY (parking_id) REFERENCES parking (id)
+    FOREIGN KEY (user_id) REFERENCES person (id)
 );
 -----------
 create TABLE reservation(

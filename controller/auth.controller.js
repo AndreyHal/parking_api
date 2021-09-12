@@ -18,14 +18,14 @@ class AuthController {
     const token = jwt.sign(
       {user_id: user.rows[0].id, user_role: user.rows[0].role},
       'jwt_secret_key',
-      {expiresIn: 90000}
+      {expiresIn: 2419200}  // 1 месяц в секундах
     );
 
     res.cookie('token', token, {
-      maxAge: 90000, // time until expiration
+      maxAge: 2419200, // 1 месяц в секундах
       secure: false, // set to true if your using https
       httpOnly: true
-    }).send();
+    }).json({role: user.rows[0].role});
   };
 
   async isAuth(req, res) {

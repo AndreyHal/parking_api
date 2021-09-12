@@ -9,6 +9,7 @@ router.get('/getFavorite', auth, parkingController.getFavorite);
 router.post('/addFavorite', auth, parkingController.addFavorite);
 router.post('/removeFavorite', auth, parkingController.removeFavorite);
 router.get('/getParking/:id', auth, parkingController.getOneParking);
-router.post('/updateParking', auth, parkingController.updateParking);
+router.get('/getParkingSettings', auth, parkingController.getParkingSettings);
+router.post('/updateParkingSettings', auth, parkingController.updateParkingSettings);
 
 module.exports = router;
