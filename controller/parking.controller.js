@@ -116,7 +116,7 @@ class ParkingController {
                                        motorbike,
                                        car,
                                        truck, CASE WHEN parking.id IN (SELECT parking_id FROM favorite WHERE user_id=$1) THEN true ELSE false END AS is_favorite FROM parking`, [user_id]);
-    const favorite = arr.rows.filter(item => item.is_favorite===true);
+    const favorite = arr.rows.filter(item => item.is_favorite === true);
     res.json(favorite);
   };
 
